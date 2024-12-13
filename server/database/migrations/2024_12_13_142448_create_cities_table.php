@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('waterfalls', function (Blueprint $table) {
+        Schema::create('cities', function (Blueprint $table) {
             $table->id();
+            $table->integer('id_csc')->nullable();
             $table->string('name');
-            $table->string('city')->nullable();
-            $table->string('state')->nullable();
-            $table->string('country')->nullable();
+            $table->string('state_name')->nullable();
+            $table->string('state_code')->nullable();
+            $table->string('country_name')->nullable();
             $table->string('country_code')->nullable();
             $table->decimal('latitude', 10, 6);
             $table->decimal('longitude', 10, 6);
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('waterfalls');
+        Schema::dropIfExists('cities');
     }
 };

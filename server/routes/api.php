@@ -2,7 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\WaterfallController;
+use App\Http\Controllers\Api\WaterfallController;
+use App\Http\Controllers\Api\CityController;
 
 
 /*
@@ -21,3 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/waterfalls', [WaterfallController::class, 'index']);
+
+Route::get('/cities/search', [CityController::class, 'search']);

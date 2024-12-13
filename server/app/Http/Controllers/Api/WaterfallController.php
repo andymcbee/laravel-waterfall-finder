@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller; 
 use App\Models\Waterfall;
 use Illuminate\Http\Request;
 
@@ -12,4 +13,7 @@ class WaterfallController extends Controller
         $waterfalls = Waterfall::all();
         return response()->json($waterfalls);
     }
+
 }
+
+
