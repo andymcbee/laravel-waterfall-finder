@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\WaterfallController;
+use App\Http\Controllers\Web\CityController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +23,5 @@ Route::get('/', function () {
 Route::get('/waterfalls', [WaterfallController::class, 'showWaterfalls']);
 
 Route::get('/waterfalls/{id}', [WaterfallController::class, 'showWaterfall']);
+
+Route::get('/{country_name}/waterfalls/{id}', [CityController::class, 'show']);

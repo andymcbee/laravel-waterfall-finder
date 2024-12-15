@@ -11,13 +11,33 @@
         #map {
             height: 500px; /* Set a height for your map */
         }
+        #cityList {
+            margin-top: 20px;
+        }
     </style>
     <title>Waterfalls</title>
 </head>
 <body>
+    <!-- Map Container -->
     <div id="map"></div>
+
+    <!-- City Search and Results -->
     <input type="text" id="citySearch" placeholder="Search cities...">
     <div id="searchResults"></div>
+
+    <!-- List of Cities and Waterfall Counts -->
+    <div id="cityList">
+        <h2>City Waterfall Counts</h2>
+        <ul>
+            @foreach ($cities as $city)
+                <li>
+                    <a href="{{ url('/' . $city->country_name . '/waterfalls/' . $city->id) }}">
+                        {{ $city->name }} - {{ $city->waterfalls_count }} waterfalls
+                    </a>
+                </li>
+            @endforeach
+        </ul>
+    </div>
 
     <script>
         var map = L.map('map').setView([51.505, -0.09], 13);
@@ -59,7 +79,6 @@
                 });
         });
 
-        // Optionally, add an event listener to refocus and show results when the input is clicked
         document.getElementById('citySearch').addEventListener('focus', function() {
             var container = document.getElementById('searchResults');
             if (this.value.length > 0 && container.innerHTML !== '') {
@@ -67,7 +86,6 @@
             }
         });
 
-        // Add a listener to hide the results if the user clicks anywhere else on the page
         document.addEventListener('click', function(event) {
             var container = document.getElementById('searchResults');
             if (!container.contains(event.target) && event.target !== document.getElementById('citySearch')) {
@@ -75,6 +93,5 @@
             }
         });
     </script>
-   
 </body>
 </html>

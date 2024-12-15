@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('state_name')->nullable();
             $table->string('state_code')->nullable();
-            $table->string('country_name')->nullable();
-            $table->string('country_code')->nullable();
+            $table->string('country_name');
+            $table->string('country_code');
             $table->decimal('latitude', 10, 6);
             $table->decimal('longitude', 10, 6);
             $table->timestamps();
