@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('id_csc')->nullable();
             $table->string('name');
+            $table->string('slug')->unique();
             $table->string('state_name')->nullable();
             $table->string('state_code')->nullable();
             $table->string('country_name');

@@ -12,9 +12,9 @@ class CityController extends Controller
     public function show(Request $request)
     {
         $countryName = $request->route('country_name');
-        $id = $request->route('id');
+        $slug = $request->route('slug');
 
-        $city = City::findOrFail($id);
+        $city = City::where('slug', $slug)->firstOrFail();
 
         $waterfalls = $city->waterfalls;
         

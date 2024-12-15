@@ -22,6 +22,7 @@
             <div>
                 <h1 class="text-3xl font-bold mb-4">Waterfalls Near {{ $city->name }}</h1>
                 <p class="text-gray-600">Country: <span class="font-semibold">{{ $city->country_name }}</span></p>
+                <p class="text-gray-600">{{ $city->slug}}</p>
                 <p class="text-gray-600">Explore the most stunning waterfalls in the area and plan your adventure!</p>
             </div>
             <!-- Map -->

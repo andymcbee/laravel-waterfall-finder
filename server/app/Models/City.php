@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class City extends Model
 {
-    protected $fillable = ['name', 'height', 'province', 'latitude', 'longitude'];
+    protected $fillable = ['name', 'height', 'province', 'latitude', 'longitude', 'slug'];
 
     public $timestamps = true;
 

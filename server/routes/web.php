@@ -24,4 +24,4 @@ Route::get('/waterfalls', [WaterfallController::class, 'showWaterfalls']);
 
 Route::get('/waterfalls/{id}', [WaterfallController::class, 'showWaterfall']);
 
-Route::get('/{country_name}/waterfalls/{id}', [CityController::class, 'show']);
+Route::get('/{country_name}/waterfalls/{slug}', [CityController::class, 'show']);

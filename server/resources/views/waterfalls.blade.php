@@ -31,7 +31,7 @@
         <ul>
             @foreach ($cities as $city)
                 <li>
-                    <a href="{{ url('/' . $city->country_name . '/waterfalls/' . $city->id) }}">
+                    <a href="{{ url('/' . $city->country_name . '/waterfalls/' . $city->slug) }}">
                         {{ $city->name }} - {{ $city->waterfalls_count }} waterfalls
                     </a>
                 </li>

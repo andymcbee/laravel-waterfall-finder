@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('country_code')->nullable();
             $table->decimal('latitude', 10, 6);
             $table->decimal('longitude', 10, 6);
-            $table->geometry('geom', srid: 4326);
             $table->timestamps();
         });
 
