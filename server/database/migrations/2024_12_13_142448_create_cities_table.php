@@ -22,8 +22,11 @@ return new class extends Migration
             $table->string('country_code');
             $table->decimal('latitude', 10, 6);
             $table->decimal('longitude', 10, 6);
+            $table->point('geom');
             $table->timestamps();
         });
+
+        DB::statement('CREATE INDEX cities_geom_idx ON cities USING GIST (geom)');
 
     }
 
@@ -33,5 +36,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('cities');
+        DB::statement('DROP INDEX IF EXISTS cities_geom_idx');
     }
 };

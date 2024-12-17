@@ -20,5 +20,7 @@ class DatabaseSeeder extends Seeder
         // ]);
         $this->call(WaterfallsTableSeeder::class);
         $this->call(CitiesTableSeeder::class);
+        $this->call(CityWaterfallsTableSeeder::class);
+
     }
 }

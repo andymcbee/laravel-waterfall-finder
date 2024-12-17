@@ -27,6 +27,7 @@ class WaterfallsTableSeeder extends Seeder
                 'country_code' => $record['country_code'],
                 'latitude' => $record['latitude'],
                 'longitude' => $record['longitude'],
+                'geom' => DB::raw("ST_GeomFromText('POINT({$record['longitude']} {$record['latitude']})', 4326)"),                
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]);

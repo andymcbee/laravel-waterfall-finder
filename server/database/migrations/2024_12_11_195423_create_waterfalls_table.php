@@ -20,8 +20,12 @@ return new class extends Migration
             $table->string('country_code')->nullable();
             $table->decimal('latitude', 10, 6);
             $table->decimal('longitude', 10, 6);
+            $table->point('geom');
             $table->timestamps();
         });
+
+        DB::statement('CREATE INDEX waterfalls_geom_idx ON waterfalls USING GIST (geom)');
+
 
     }
 
@@ -31,5 +35,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('waterfalls');
+        DB::statement('DROP INDEX IF EXISTS waterfalls_geom_idx');
+
     }
 };

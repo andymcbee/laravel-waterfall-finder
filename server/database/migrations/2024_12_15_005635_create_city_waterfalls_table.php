@@ -18,7 +18,11 @@ return new class extends Migration
             $table->decimal('distance_km');
             $table->foreign('city_id')->references('id')->on('cities');
             $table->foreign('waterfall_id')->references('id')->on('waterfalls');
+            $table->unique(['city_id', 'waterfall_id'], 'unique_city_waterfall');
         });
+
+
+        
     }
 
     /**
